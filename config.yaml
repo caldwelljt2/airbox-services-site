@@ -1,0 +1,4 @@
+baseURL: "https://<YOUR_USERNAME>.github.io/<YOUR_REPO>/"
+languageCode: "en-us"
+title: "Airbox Services"
+theme: "blowfish"
