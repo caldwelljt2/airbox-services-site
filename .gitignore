@@ -1,0 +1,13 @@
+/public/
+/resources/
+/.DS_Store
+/junk/
+/external-docs/
+/.ai-vault
+/.env
+/.env.*
+/secrets/
+*.key
+*.pem
+id_*
+*.cert
