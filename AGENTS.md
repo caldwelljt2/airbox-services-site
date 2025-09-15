@@ -20,13 +20,18 @@ codex follows this path:
 
 **Agent Instructions**
 
+Quick start
+- Run `scripts/ai-vault-session.sh` from the repo root.
+  - It locates the AI‑Vault path (via `AI_VAULT_DIR`, `.ai-vault`, or prompt), writes `.ai-vault` if needed, and creates a temporary symlink `external-docs.session` to the project folder in the vault.
+  - It starts a new transcript and launches terminal recording. Type `exit` to finish; it cleans up the symlink and syncs the vault. It can optionally push website changes.
+
 - Run `~/AI-Vault/bin/vault-pull` then `~/AI-Vault/bin/vault-check-version` at session start to pick up ops changes.
 
 - **Purpose:** Provide clear, repeatable startup steps for agents and point to persistent context stored outside this repo (AI Vault).
 
 - **Locate Vault Pointer:**
-  - Read `.ai-vault` at repo root. It contains the absolute path to the project’s vault, e.g., `/Users/<user>/AI-Vault/projects/airbox-services-site`.
-  - If missing, ask the user to run `~/AI-Vault/bin/vault-bootstrap` (or run it if allowed) and then re-read `.ai-vault`.
+  - Preferred: `scripts/ai-vault-session.sh` will prompt for the AI‑Vault path if it cannot be auto‑detected and will write `.ai-vault` for future sessions.
+  - Manual: Read `.ai-vault` at repo root (absolute path to `~/AI-Vault/projects/airbox-services-site`). If missing, run `~/AI-Vault/bin/vault-bootstrap` and re‑read `.ai-vault`.
 
 - **Concurrency Lock:**
   - Before writing files, ensure only one agent is active in this repo.
@@ -54,7 +59,7 @@ codex follows this path:
 
 - **Key Paths & Tools:**
   - Repo pointer: ``.ai-vault``
-  - Convenience symlink (ignored by git): ``external-docs/`` → project vault folder
+  - Ephemeral session symlink (auto‑cleanup, ignored): ``external-docs.session`` → project vault folder
   - Vault helper commands (human-run):
     - New transcript: ``~/AI-Vault/bin/vault-new-session <slug>``
     - Quick note: ``~/AI-Vault/bin/vault-note <slug> "text"``
@@ -65,4 +70,3 @@ codex follows this path:
 - **When Unsure:**
   - Ask the user before running networked or potentially destructive commands.
   - If vault pointer looks invalid, pause and request confirmation of the correct path.
-

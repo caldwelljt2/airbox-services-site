@@ -1,0 +1,11 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "AI-Vault: Start Session",
+      "type": "shell",
+      "command": "bash scripts/ai-vault-session.sh",
+      "problemMatcher": []
+    }
+  ]
+}

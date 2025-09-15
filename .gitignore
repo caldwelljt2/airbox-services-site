@@ -2,7 +2,9 @@
 /resources/
 /.DS_Store
 /junk/
-/external-docs/
+/# Ephemeral session link and local fallback notes
+/external-docs.session
+/TRANSCRIPTS/
 /.ai-vault
 /.env
 /.env.*
