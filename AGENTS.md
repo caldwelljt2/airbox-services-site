@@ -57,6 +57,10 @@ Quick start
   - Static site built by Hugo; GitHub Actions deploys `public/` to `gh-pages` on pushes to configured branches.
   - Custom domain via `static/CNAME` of `www.airboxinc.com`.
 
+- **Local site:**
+  - The Blowfish theme is the `themes/blowfish` git submodule. Initialize it with `git submodule update --init --recursive` before building.
+  - Extended Hugo is required. Dev server: `hugo server --bind 0.0.0.0 --port 1313`. CI build: `hugo --minify`.
+
 - **Key Paths & Tools:**
   - Repo pointer: ``.ai-vault``
   - Ephemeral session symlink (auto‑cleanup, ignored): ``external-docs.session`` → project vault folder
